@@ -5,7 +5,7 @@ const PostSchema = new mongoose.Schema({
   description: { type: String, required: true },
   tags: [String],
   auther: { type: String, required: true },
-  posted: { type: String, default: new Date().now },
+  posted: { type: String, default: new Date().toString() },
 });
 
 module.exports = mongoose.model("posts", PostSchema);
