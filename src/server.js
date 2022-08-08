@@ -1,11 +1,11 @@
 const express = require("express");
 const connect = require("./connect/connect");
 const PostRoute = require("./routes/PostRoute");
-const logger = require("./logger");
+const loggerFunc = require("./logger");
 const app = express();
 
 app.use(express.json());
-app.use(logger);
+app.use(loggerFunc);
 app.use("/", PostRoute);
 
 (async () => {
