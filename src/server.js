@@ -3,10 +3,14 @@ const connect = require("./connect/connect");
 const PostRoute = require("./routes/PostRoute");
 const loggerFunc = require("./logger");
 const app = express();
+const notFound = require("./middlewares/not-found");
+const errorHandler = require("./middlewares/error-handler");
 
 app.use(express.json());
 app.use(loggerFunc);
 app.use("/", PostRoute);
+app.use(notFound);
+app.use(errorHandler);
 
 (async () => {
   try {
