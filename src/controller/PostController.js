@@ -19,8 +19,8 @@ const getSinglePost = asyncWrapper(async (req, res) => {
 
 const getAllPost = asyncWrapper(async (req, res) => {
   const response = await schema.find({}).sort({ posted: "desc" });
-  // if (!response) return res.status(200).json([])
-  if (response) throw throwError('Something went wrong', 500)
+  if (!response) return res.status(200).json([])
+  // if (response) throw throwError('Something went wrong', 500)
   return res.status(200).json(response);
 });
 
